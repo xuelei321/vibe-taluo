@@ -81,22 +81,33 @@ vercel --prod
 
 详细配置说明请查看 [ENV_PRODUCTION.md](./ENV_PRODUCTION.md)
 
+## 项目结构 / Project Structure
+
+```
+src/
+├── components/
+│   ├── background/     # 星空 & 极光背景
+│   ├── chat/           # AI 神谕对话 & 打字机效果
+│   ├── emotion/        # 情绪日记输入 & 情绪分析
+│   ├── history/        # 占卜历史记录
+│   ├── settings/       # 设置面板
+│   ├── tarot/          # 塔罗牌组件 & 卡牌动画
+│   └── ui/             # 通用 UI（光标、骨架屏等）
+├── composables/        # Vue Composables 状态管理
+├── data/               # 78 张塔罗牌数据
+├── utils/              # 工具函数
+└── doc/                # 开发文档
+```
+
 ## 功能特色 / Features
 
 - **智能情绪分析** - AI 分析日记内容，理解你的情绪状态
-- **塔罗占卜** - 78 张塔罗牌随机抽取，三张揭示潜意识
-- **情绪趋势图** - 情绪星档记录历史，展示情绪波动
-- **赛博美学** - 霓虹发光、毛玻璃、星空背景
+- **塔罗占卜** - 78 张塔罗牌随机抽取，三张牌阵揭示潜意识
+- **神谕对话** - AI 流式解读，打字机效果逐字呈现
+- **情绪星档** - 历史记录与情绪趋势可视化
+- **赛博美学** - 霓虹发光、毛玻璃、星空极光动态背景
 - **PWA 支持** - 可安装到桌面，离线可用
 - **移动端适配** - 完全响应式设计
-
-## 截图预览 / Screenshots
-
-> 截图待添加 / Screenshots to be added
-
-| 首页 | 占卜中 | 历史记录 |
-|:---:|:---:|:---:|
-| ![Home](./screenshots/home-placeholder.png) | ![Reading](./screenshots/reading-placeholder.png) | ![History](./screenshots/history-placeholder.png) |
 
 ## License
 
