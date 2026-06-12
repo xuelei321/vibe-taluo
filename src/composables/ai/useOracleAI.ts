@@ -252,9 +252,8 @@ export function useOracleAI() {
       throw new Error('API Key 未配置。请在设置中配置模型或检查 .env.local 文件')
     }
 
-    const apiEndpoint = config.apiUrl
-      ? `${config.apiUrl.replace(/\/$/, '')}/chat/completions`
-      : '/api/chat/completions'
+    // 优先使用代理路径以避免 CORS 问题
+    const apiEndpoint = '/api/chat/completions'
 
     const response = await fetch(apiEndpoint, {
       method: 'POST',
@@ -392,9 +391,8 @@ ${cardsSummary}
               return mockSummary
             }
 
-            const apiEndpoint = config.apiUrl
-              ? `${config.apiUrl.replace(/\/$/, '')}/chat/completions`
-              : '/api/chat/completions'
+            // 优先使用代理路径以避免 CORS 问题
+            const apiEndpoint = '/api/chat/completions'
 
             const response = await fetch(apiEndpoint, {
               method: 'POST',

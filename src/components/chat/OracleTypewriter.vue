@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, watch, nextTick, computed } from 'vue'
-import { parseMarkdownToNodes, stripMarkdown, type MarkdownNode } from '@/utils/markdown'
+
+import { parseMarkdownToNodes, type MarkdownNode } from '@/utils/markdown'
 
 interface Props {
   text: string
@@ -15,8 +16,6 @@ const showCompletionMark = ref(false)
 
 const parsedNodes = computed(() => parseMarkdownToNodes(props.text))
 
-const plainText = computed(() => stripMarkdown(props.text))
-
 watch(() => props.text, async () => {
   await nextTick()
   if (containerRef.value) {
@@ -24,7 +23,7 @@ watch(() => props.text, async () => {
   }
 })
 
-watch(() => props.isComplete, (complete) => {
+watch(() => props.isComplete, (complete: boolean) => {
   if (complete) {
     setTimeout(() => { showCompletionMark.value = true }, 300)
   } else {
@@ -32,7 +31,7 @@ watch(() => props.isComplete, (complete) => {
   }
 })
 
-function renderNode(node: MarkdownNode, index: number) {
+function renderNode(node: MarkdownNode, _index: number) {
   switch (node.type) {
     case 'strong':
       return `<strong class="text-[#f0e6d0] font-medium">${node.content}</strong>`
